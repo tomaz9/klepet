@@ -62,6 +62,11 @@ a {
   margin-right: 1em;
 }
 
+.slike {
+ width: 200px;
+ margin-left: 20px;
+}
+
 #pomoc {
   font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
 }

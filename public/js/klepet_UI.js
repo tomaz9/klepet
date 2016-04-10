@@ -12,6 +12,15 @@ function divElementHtmlTekst(sporocilo) {
   return $('<div></div>').html('<i>' + sporocilo + '</i>');
 }
 
+function dodajSlike(sporocilo) {
+ var aliJeSlika = new RegExp('\\bhttps?:\/\/\\S*\.(jpg|png|gif)\\b', 'gi');
+ var vseSlike = sporocilo.toString().match(aliJeSlika);
+ for(var i in vseSlike) {
+  var trenutnaSlika = '<img src =\"'+vseSlike[i]+'\" class=\"slike\">';
+    $('#sporocila').append(divElementHtmlTekst(trenutnaSlika));
+ }
+}
+
 function procesirajVnosUporabnika(klepetApp, socket) {
   var sporocilo = $('#poslji-sporocilo').val();
   sporocilo = dodajSmeske(sporocilo);
@@ -26,6 +35,8 @@ function procesirajVnosUporabnika(klepetApp, socket) {
     sporocilo = filtirirajVulgarneBesede(sporocilo);
     klepetApp.posljiSporocilo(trenutniKanal, sporocilo);
     $('#sporocila').append(divElementEnostavniTekst(sporocilo));
+    //dodajanje slik
+    dodajSlike(sporocilo);
     $('#sporocila').scrollTop($('#sporocila').prop('scrollHeight'));
   }
 
@@ -76,6 +87,7 @@ $(document).ready(function() {
   socket.on('sporocilo', function (sporocilo) {
     var novElement = divElementEnostavniTekst(sporocilo.besedilo);
     $('#sporocila').append(novElement);
+    dodajSlike(sporocilo.besedilo);
   });
   
   socket.on('kanali', function(kanali) {

@@ -5,27 +5,39 @@
   <meta charset="UTF-8">
   <title>OIS klepetalnica</title>
   <link rel='stylesheet' href='/css/stil.css'></link>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 <div id='vsebina'>
-  <div id='kanal'></div>
-  <div id='seznam'>
+  <button id="kanal" type="button" class="btn btn-primary"></button>
+  <div id='seznam' >
     <div id='seznam-kanalov'></div>
     <div id='seznam-uporabnikov'></div>
   </div>
-  <div id='sporocila'></div>
+  <div id='sporocila' class="form-control"></div>
+
 
   <form id='poslji-obrazec'>
-    <input id='poslji-sporocilo' />
-    <input id='poslji-gumb' type='submit' value='Pošlji'/>
-
+    <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+       <input id='poslji-sporocilo' type="text" class="form-control" placeholder="Pošlji sporočilo">
+        <span class="input-group-btn">
+          <button id="poslji-gumb" class="btn btn-primary" type="submit" value='Pošlji'><span class="glyphicon glyphicon-ok"></span></button>
+          
+        </span>
+        
+      </div>
+    </div>
+    </div>
+    <br>
     <div id='pomoc'>
-      Ukazi za klepet:
-      <ul>
-        <li>Sprememba vzdevka: <code>/vzdevek [vzdevek]</code></li>
-        <li>Pridružitev/kreiranje kanala: <code>/pridruzitev [ime kanala]</code></li>
-        <li>Pošiljanje zasebnega sporočila: <code>/zasebno "[vzdevek]" "[sporočilo]"</code></li>
+      <ul class="list-group">
+        <li class="list-group-item">Sprememba vzdevka: <code>/vzdevek [vzdevek]</code></li>
+        <li class="list-group-item">Pridružitev/kreiranje kanala: <code>/pridruzitev [ime kanala]</code></li>
+        <li class="list-group-item">Pošiljanje zasebnega sporočila: <code>/zasebno "[vzdevek]" "[sporočilo]"</code></li>
       </ul>
     </div>
   </form>

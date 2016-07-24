@@ -71,7 +71,8 @@ $(document).ready(function() {
     if (rezultat.uspesno) {
       trenutniVzdevek = rezultat.vzdevek;
       $('#kanal').text(trenutniVzdevek + " @ " + trenutniKanal);
-      sporocilo = 'Prijavljen si kot ' + rezultat.vzdevek + '.';
+      sporocilo = '<div class="alert alert-info">Prijavljen si kot <strong>'+rezultat.vzdevek+'</strong>.</div>';
+      
     } else {
       sporocilo = rezultat.sporocilo;
     }
@@ -81,7 +82,7 @@ $(document).ready(function() {
   socket.on('pridruzitevOdgovor', function(rezultat) {
     trenutniKanal = rezultat.kanal;
     $('#kanal').text(trenutniVzdevek + " @ " + trenutniKanal);
-    $('#sporocila').append(divElementHtmlTekst('Sprememba kanala.'));
+    $('#sporocila').append(divElementHtmlTekst('<div class="alert alert-success"> <strong>Sprememba kanala</strong></div>'));
   });
 
   socket.on('sporocilo', function (sporocilo) {

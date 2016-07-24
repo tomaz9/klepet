@@ -44,7 +44,7 @@ Klepet.prototype.procesirajUkaz = function(ukaz) {
       }
       break;
     default:
-      sporocilo = 'Neznan ukaz.';
+      sporocilo = '<div class="alert alert-warning"> <strong>Opozorilo! </strong>Vnesli ste neznan ukaz.</div>';
       break;
   };
 
